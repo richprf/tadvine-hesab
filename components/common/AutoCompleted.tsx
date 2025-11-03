@@ -18,10 +18,11 @@ export default function FilterAutocomplete() {
   return (
     <div className="flex w-full flex-wrap md:flex-nowrap gap-4">
       <Autocomplete
+        
         label="Filter by region"
         defaultItems={regions}
         onSelectionChange={(key:any) => {
-          // اگر key از نوع Set باشه، مقدار واقعی رو ازش بیرون می‌کشیم
+
           const selected =
             key instanceof Set ? Array.from(key)[0] : key;
 

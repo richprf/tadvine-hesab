@@ -1,14 +1,12 @@
 "use client";
 
-export default function CommonInput({ placeholder, type , onChange }: any) {
+export default function CommonInput({ placeholder, type, onChange }: any) {
   return (
     <div className="relative w-full max-w-md">
-      {/* Input */}
       <input
         type={type}
         placeholder={placeholder}
         onChange={onChange}
-
         className="
           w-full
           py-2 pl-10 pr-4
@@ -22,7 +20,6 @@ export default function CommonInput({ placeholder, type , onChange }: any) {
         "
       />
 
-      {/* آیکون داخل input */}
       <span className="absolute inset-y-0 left-3 flex items-center text-gray-600 pointer-events-none">
         <svg
           xmlns="http://www.w3.org/2000/svg"

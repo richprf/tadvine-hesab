@@ -9,7 +9,7 @@ interface CountryPaginationProps {
 }
 
 const CountryPagination = ({ total, current, onChange }: CountryPaginationProps) => {
-  if (total <= 1) return null; // اگه فقط یه صفحه بود، نمایش نده
+  if (total <= 1) return null; 
 
   return (
     <div className="flex justify-center mt-10">

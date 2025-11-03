@@ -7,7 +7,6 @@ import { useSelector } from "react-redux";
 import { useMemo, useState } from "react";
 import CountryPagination from "./PageInation";
 
-
 const ITEMS_PER_PAGE = 8;
 
 const CountryWrapper = () => {
@@ -28,9 +27,7 @@ const CountryWrapper = () => {
     const regionValue = region?.toLowerCase()?.trim() || "";
 
     return data
-      .filter((item: any) =>
-        item.name?.toLowerCase().includes(searchValue)
-      )
+      .filter((item: any) => item.name?.toLowerCase().includes(searchValue))
       .filter((item: any) =>
         regionValue ? item.region?.toLowerCase() === regionValue : true
       );
@@ -48,13 +45,12 @@ const CountryWrapper = () => {
 
   return (
     <div className="bg-slate-800 min-h-screen p-6">
-      <div className="grid grid-cols-4 gap-10">
+      <div className="grid grid-cols-1 gap-10 md:grid-cols-3 lg:grid-cols-4">
         {currentItems.map((item: any, index: number) => (
           <Card key={index} item={item} index={index} />
         ))}
       </div>
 
-      {/* Pagination */}
       <CountryPagination total={totalPages} current={page} onChange={setPage} />
     </div>
   );

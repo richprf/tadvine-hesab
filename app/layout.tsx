@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { Providers } from "./providers";
 import Header from "@/components/common/Header";
+import PageTransitionWrapper from "@/components/common/PageTransitionWrapper";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -30,10 +31,9 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <Providers>
-              <Header />
-            {children}
+          <Header />
+          <PageTransitionWrapper>{children}</PageTransitionWrapper>
         </Providers>
-      
       </body>
     </html>
   );

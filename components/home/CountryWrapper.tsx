@@ -2,10 +2,13 @@
 
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
-import Card from "./Card";
 import { useSelector } from "react-redux";
 import { useMemo, useState } from "react";
+
+import CountryGrid from "./CountryGrid";
+
 import CountryPagination from "./PageInation";
+import LoadingPlaceholder from "../common/LoadingPlaceholder";
 
 const ITEMS_PER_PAGE = 8;
 
@@ -39,19 +42,19 @@ const CountryWrapper = () => {
     page * ITEMS_PER_PAGE
   );
 
-  if (isLoading) return <p className="text-white">Loading...</p>;
+  if (isLoading) return <LoadingPlaceholder items={ITEMS_PER_PAGE} />;
   if (!filtered.length)
     return <p className="text-white text-center mt-10">No results found</p>;
 
   return (
     <div className="bg-slate-800 min-h-screen p-6">
-      <div className="grid grid-cols-1 gap-10 md:grid-cols-3 lg:grid-cols-4">
-        {currentItems.map((item: any, index: number) => (
-          <Card key={index} item={item} index={index} />
-        ))}
-      </div>
+      <CountryGrid items={currentItems} />
 
-      <CountryPagination total={totalPages} current={page} onChange={setPage} />
+      <CountryPagination
+        total={totalPages}
+        current={page}
+        onChange={setPage}
+      />
     </div>
   );
 };
